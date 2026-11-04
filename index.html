@@ -24,7 +24,7 @@
 
         <nav class="main-nav" aria-label="Main navigation">
           <a class="nav-link active" href="#overview"><span>◈</span> Overview</a>
-          <a class="nav-link" href="#tasks"><span>✓</span> My tasks <b>4</b></a>
+          <a class="nav-link" href="#tasks"><span>✓</span> My tasks <b id="taskCount">2</b></a>
           <a class="nav-link" href="#notes"><span>▤</span> Notes</a>
         </nav>
 
@@ -63,9 +63,9 @@
         <div class="stats-grid">
           <article class="stat-card accent">
             <div class="stat-heading"><span>Today's focus</span><span class="stat-symbol">◒</span></div>
-            <strong>4 <small>tasks left</small></strong>
-            <div class="progress"><span style="width: 68%"></span></div>
-            <p>68% of your day is complete</p>
+            <strong><span id="tasksLeft">2</span> <small>tasks left</small></strong>
+            <div class="progress" aria-label="Daily progress"><span id="progressBar" style="width: 50%"></span></div>
+            <p id="progressText">50% of your day is complete</p>
           </article>
           <article class="stat-card">
             <div class="stat-heading"><span>Focus streak</span><span class="stat-symbol">⌁</span></div>

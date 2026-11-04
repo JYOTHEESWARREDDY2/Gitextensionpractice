@@ -3,6 +3,22 @@ const taskInput = document.querySelector("#taskInput");
 const taskList = document.querySelector("#taskList");
 const clearCompleted = document.querySelector("#clearCompleted");
 const quickAdd = document.querySelector("#quickAdd");
+const taskCount = document.querySelector("#taskCount");
+const tasksLeft = document.querySelector("#tasksLeft");
+const progressBar = document.querySelector("#progressBar");
+const progressText = document.querySelector("#progressText");
+
+function updateTaskSummary() {
+  const tasks = [...taskList.querySelectorAll(".task")];
+  const remaining = tasks.filter((task) => !task.classList.contains("done")).length;
+  const completed = tasks.length - remaining;
+  const progress = tasks.length ? Math.round((completed / tasks.length) * 100) : 0;
+
+  taskCount.textContent = remaining;
+  tasksLeft.textContent = remaining;
+  progressBar.style.width = `${progress}%`;
+  progressText.textContent = `${progress}% of your day is complete`;
+}
 
 function bindTask(task) {
   const check = task.querySelector(".check");
@@ -10,10 +26,12 @@ function bindTask(task) {
     const completed = task.classList.toggle("done");
     check.textContent = completed ? "✓" : "";
     check.setAttribute("aria-label", completed ? "Mark task incomplete" : "Mark task complete");
+    updateTaskSummary();
   });
 }
 
 document.querySelectorAll(".task").forEach(bindTask);
+updateTaskSummary();
 
 taskForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -28,10 +46,12 @@ taskForm.addEventListener("submit", (event) => {
   bindTask(task);
   taskInput.value = "";
   taskInput.focus();
+  updateTaskSummary();
 });
 
 clearCompleted.addEventListener("click", () => {
   taskList.querySelectorAll(".task.done").forEach((task) => task.remove());
+  updateTaskSummary();
 });
 
 quickAdd.addEventListener("click", () => {
