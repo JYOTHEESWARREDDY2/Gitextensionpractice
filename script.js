@@ -10,6 +10,7 @@ const progressText = document.querySelector("#progressText");
 const timerDisplay = document.querySelector("#timerDisplay");
 const timerToggle = document.querySelector("#timerToggle");
 const timerReset = document.querySelector("#timerReset");
+const backToTop = document.querySelector("#backToTop");
 let timerSeconds = 25 * 60;
 let timerInterval;
 
@@ -98,6 +99,10 @@ timerReset.addEventListener("click", () => {
   timerSeconds = 25 * 60;
   timerToggle.textContent = "Start";
   renderTimer();
+});
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
 const plannerData = {
