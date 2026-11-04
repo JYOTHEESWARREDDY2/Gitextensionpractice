@@ -7,6 +7,9 @@ const taskCount = document.querySelector("#taskCount");
 const tasksLeft = document.querySelector("#tasksLeft");
 const progressBar = document.querySelector("#progressBar");
 const progressText = document.querySelector("#progressText");
+const dailyNote = document.querySelector("#dailyNote");
+const noteStatus = document.querySelector("#noteStatus");
+const noteCount = document.querySelector("#noteCount");
 
 function updateTaskSummary() {
   const tasks = [...taskList.querySelectorAll(".task")];
@@ -58,3 +61,15 @@ quickAdd.addEventListener("click", () => {
   taskInput.focus();
   taskInput.scrollIntoView({ behavior: "smooth", block: "center" });
 });
+
+const savedNote = localStorage.getItem("focus-daily-note");
+if (savedNote) dailyNote.value = savedNote;
+
+function updateNote() {
+  localStorage.setItem("focus-daily-note", dailyNote.value);
+  noteCount.textContent = `${dailyNote.value.length} / 500`;
+  noteStatus.textContent = "Saved just now";
+}
+
+dailyNote.addEventListener("input", updateNote);
+updateNote();
