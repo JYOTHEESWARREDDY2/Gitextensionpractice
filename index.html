@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="A simple, focused workspace dashboard." />
-    <title>Focus | Daily Dashboard</title>
+    <title>Focus | Workspace</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -103,6 +103,22 @@
             <div class="note-footer"><span>Autosaved just now</span><button class="text-button">Open notes →</button></div>
           </aside>
         </div>
+
+        <section class="focus-sprint" aria-labelledby="focusSprintTitle">
+          <div class="sprint-copy">
+            <span class="sprint-icon">◷</span>
+            <div>
+              <p class="eyebrow">Need a little momentum?</p>
+              <h2 id="focusSprintTitle">Start a focus sprint</h2>
+              <p>Give one task your full attention for the next 25 minutes.</p>
+            </div>
+          </div>
+          <div class="timer" aria-live="polite">
+            <strong id="timerDisplay">25:00</strong>
+            <button class="timer-button" id="timerToggle">Start</button>
+            <button class="timer-reset" id="timerReset">Reset</button>
+          </div>
+        </section>
 
         <footer>Made for thoughtful work <span>·</span> Keep going at your own pace.</footer>
       </section>
