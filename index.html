@@ -24,7 +24,7 @@
 
         <nav class="main-nav" aria-label="Main navigation">
           <a class="nav-link active" href="#overview"><span>◈</span> Overview</a>
-          <a class="nav-link" href="#tasks"><span>✓</span> My tasks <b id="taskCount">2</b></a>
+          <a class="nav-link" href="#tasks"><span>✓</span> My tasks <b id="tagggggskCount">2</b></a>
           <a class="nav-link" href="#notes"><span>▤</span> Notes</a>
         </nav>
 
@@ -50,6 +50,7 @@
           <div class="breadcrumb">Workspace <span>/</span> Overview</div>
           <div class="topbar-actions">
             <span class="focus-status"><i></i> Focused mode</span>
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme">☾ <span>Theme</span></button>
             <button class="icon-button" aria-label="Open notifications">♧<i></i></button>
           </div>
         </header>
@@ -106,6 +107,71 @@
             <div class="note-footer"><span id="noteStatus">Autosaved just now</span><span id="noteCount">0 / 500</span></div>
           </aside>
         </div>
+
+        <section class="focus-sprint" aria-labelledby="focusSprintTitle">
+          <div class="sprint-copy">
+            <span class="sprint-icon">◷</span>
+            <div>
+              <p class="eyebrow">Need a little momentum?</p>
+              <h2 id="focusSprintTitle">Start a focus sprint</h2>
+              <p>Give one task your full attention for the next 25 minutes.</p>
+            </div>
+          </div>
+          <div class="timer" aria-live="polite">
+            <strong id="timerDisplay">25:00</strong>
+            <button class="timer-button" id="timerToggle">Start</button>
+            <button class="timer-reset" id="timerReset">Reset</button>
+          </div>
+        </section>
+
+        <section class="planner-panel" id="planner" aria-labelledby="plannerTitle">
+          <div class="planner-header">
+            <div>
+              <p class="eyebrow">Plan with intention</p>
+              <h2 id="plannerTitle">Weekly planner</h2>
+              <p class="planner-subtitle">A simple view of the time you want to protect.</p>
+            </div>
+            <span class="planner-total"><strong id="blockCount">5</strong> focus blocks</span>
+          </div>
+
+          <div class="day-tabs" role="tablist" aria-label="Planner days">
+            <button class="day-tab active" role="tab" aria-selected="true" data-day="mon">
+              <span>Mon</span><strong>3</strong>
+            </button>
+            <button class="day-tab" role="tab" aria-selected="false" data-day="tue">
+              <span>Tue</span><strong>4</strong>
+            </button>
+            <button class="day-tab" role="tab" aria-selected="false" data-day="wed">
+              <span>Wed</span><strong>5</strong>
+            </button>
+            <button class="day-tab" role="tab" aria-selected="false" data-day="thu">
+              <span>Thu</span><strong>6</strong>
+            </button>
+            <button class="day-tab" role="tab" aria-selected="false" data-day="fri">
+              <span>Fri</span><strong>7</strong>
+            </button>
+          </div>
+
+          <div class="planner-body">
+            <div>
+              <div class="schedule-heading">
+                <h3 id="selectedDayTitle">Monday's focus</h3>
+                <span id="selectedDayMeta">2 blocks planned</span>
+              </div>
+              <ul class="schedule-list" id="scheduleList"></ul>
+              <p class="empty-schedule" id="emptySchedule" hidden>No blocks planned yet. Add one below.</p>
+            </div>
+
+            <form class="block-form" id="blockForm">
+              <label for="blockTitle">Add a focus block</label>
+              <div class="block-form-row">
+                <input id="blockTitle" type="text" maxlength="48" placeholder="e.g. Deep work" required />
+                <input id="blockTime" type="time" value="09:00" aria-label="Block time" required />
+                <button type="submit" class="primary-button">Add</button>
+              </div>
+            </form>
+          </div>
+        </section>
 
         <footer>Made for thoughtful work <span>·</span> Keep going at your own pace.</footer>
       </section>
